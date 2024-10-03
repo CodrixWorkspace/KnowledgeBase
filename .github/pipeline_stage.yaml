@@ -1,0 +1,6 @@
+name: Knowledge Base (Stage)
+
+on:
+  push:
+    branches:
+      - "stage"
