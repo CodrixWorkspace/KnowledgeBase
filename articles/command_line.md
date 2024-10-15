@@ -14,27 +14,25 @@ The Windows Command Prompt is a powerful tool that allows developers to interact
 - **Usage:** Navigate between directories.
 - **Example:**
 
-- _ ```cmd
-  cd C:\Projects
+       `cd C:\Projects`
 
-- **Notes:** Use cd .. to move up one directory level.
+- **Note:** Use `cd ..` to move up one directory level.
 
 ## List Directory Contents
 
-**2. **`dir` - **
+- Run `dir` to navigate between directories
 
 - **Usage:** Navigate between directories.
 - **Example:**
-- _ ```dir
-       dir /w  # Wide listing format
-       dir /a  # Include hidden files
+  `dir /w  # Wide listing format` 
+  `dir /a  # Include hidden files`
       
-  **2a. **`mkdir` or `md` - Make Directory**
-
-  - **Usage:**  Create a new directory.
+-  **`mkdir`:** Create a new directory.
+      
+       `mkdir` or `md` - `Make Directory`
 
   - **Example:**
-  - _ ```mkdir NewProject
+  - _ `mkdir NewProject
 
    **2b. **`rmdir` or `rd` - Remove Directory**
 
@@ -45,7 +43,7 @@ The Windows Command Prompt is a powerful tool that allows developers to interact
          rmdir /s /q OldProject   **Delete directory and contents quietly**
 
 
-**3. **Managing Files**
+## **Managing Files**
 
 
   **3a. **`copy`**
@@ -83,7 +81,7 @@ The Windows Command Prompt is a powerful tool that allows developers to interact
    - _ ```ren oldname.txt newname.txt
 
 
-**4. **Viewing and Editing Files**
+## **Viewing and Editing Files**
 
   **4a. **`more`** - 
    - **Usage:** Display output one screen at a time - Paginate Output
@@ -97,7 +95,7 @@ The Windows Command Prompt is a powerful tool that allows developers to interact
    - **Example:**
    - _ ```notepad script.py
 
-**5. **Running Programs and Scripts**
+## **Running Programs and Scripts**
 
   **5a. **`Executing Programs`**
    - **Usage:** Run executable files or scripts.
@@ -118,7 +116,7 @@ The Windows Command Prompt is a powerful tool that allows developers to interact
    - _ ```deploy.bat
 
 
-**6. **Environment Variables**
+## **Environment Variables**
 
   **6a. **`set`**
    - **Usage:** Display, set, or remove environment variables.
@@ -134,7 +132,7 @@ The Windows Command Prompt is a powerful tool that allows developers to interact
    - **Example:**
    - _ ```setx MY_VAR "HelloWorld"
 
-**7. **Piping and Redirection**
+## **Piping and Redirection**
 
   **7a. **`Redirect Output to a File`**
    - **Usage:** Save command output to a file.
@@ -160,7 +158,7 @@ The Windows Command Prompt is a powerful tool that allows developers to interact
      - **Example:**
      - _ ```dir | find "keyword""
 
-**8. **Piping and Redirection**
+## **Piping and Redirection**
 
   **8a. **`cls`**
    - **Usage:** Clear the Command Prompt screen.
