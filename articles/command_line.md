@@ -7,7 +7,9 @@ This guide provides a list of essential Windows command line instructions that d
 The Windows Command Prompt is a powerful tool that allows developers to interact with the operating system through text-based commands. Mastering these commands can enhance your efficiency and enable you to automate repetitive tasks.
 
 
-**1. **`cd` - Change Directory**
+## Change Directory
+
+- Run `cd #directory_path#` to change directory
  
 - **Usage:** Navigate between directories.
 - **Example:**
@@ -17,7 +19,9 @@ The Windows Command Prompt is a powerful tool that allows developers to interact
 
 - **Notes:** Use cd .. to move up one directory level.
 
-**2. **`dir` - List Directory Contents**
+## List Directory Contents
+
+**2. **`dir` - **
 
 - **Usage:** Navigate between directories.
 - **Example:**
@@ -183,7 +187,7 @@ The Windows Command Prompt is a powerful tool that allows developers to interact
     
 
   
-
+[Refer Link](https://www.markdownguide.org/basic-syntax/)
 
 
 
