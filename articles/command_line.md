@@ -22,170 +22,116 @@ The Windows Command Prompt is a powerful tool that allows developers to interact
 
 - Run `dir` to navigate between directories
 
-- **Usage:** Navigate between directories.
-- **Example:**
-  `dir /w  # Wide listing format` 
-  `dir /a  # Include hidden files`
+- Usage: Navigate between directories and view files in directories.
+
+       `dir`
+       `dir /w  # Wide listing format` 
+       `dir /a  # Include hidden files`
       
--  **`mkdir`:** Create a new directory.
+- 1 .`mkdir`: Create a new directory.
       
        `mkdir` or `md` - `Make Directory`
 
-  - **Example:**
-  - _ `mkdir NewProject
+  - `mkdir NewProject`
 
-   **2b. **`rmdir` or `rd` - Remove Directory**
+- 2 .`rmdir`: Delete a  directory.
+      
+       `rmdir` or `rm` - `Delete Directory`
 
-  - **Usage:**  Delete directory.
+  - `rmdir NewProject`
+        
+## Managing Files
 
-  - **Example:**
-  - _ ```rmdir NewProject
-         rmdir /s /q OldProject   **Delete directory and contents quietly**
-
-
-## **Managing Files**
-
-
-  **3a. **`copy`**
-   - **Usage:** Copy one or more files to another location.
-
-
-   - **Example:**
-   - _ ```copy source.txt destination.txt
-          copy *.txt C:\Backup
-
-  **3b. **`move`**
-   - **Usage:** Move or rename files and directories.
+ - 1 .`copy`: Copy one or more files to another location.
    
-   - **Example:**
-   - _ ```move file.txt C:\NewFolder
-          move oldname.txt newname.txt
+       `copy *.txt C:\Backup`
 
-  **3c. **`del`or `erase`**
-   - **Usage:** Delete one or more files.
+- 2 .`move`: Move or rename files and directories.
    
-   - **Example:**
-   - _ ```del unwanted.txt
-          del *.tmp  # Delete all .tmp files
+       `move oldname.txt newname.txt`
 
-  **3d. **`ren`or `rename`**
-   - **Usage:** Rename files or directories.
+- 3.`del`: Delete one or more files.
    
-   - **Example:**
-   - _ ```ren oldname.txt newname.txt
+       `del unwanted.txt`
+       `del *.tmp` 
 
-  **3e. **`type`**
-   - **Usage:** Display the contents of a text file.
+- 4 .`ren`: Rename files or directories.
    
-   - **Example:**
-   - _ ```ren oldname.txt newname.txt
+      `ren oldname.txt newname.txt`
 
-
-## **Viewing and Editing Files**
-
-  **4a. **`more`** - 
-   - **Usage:** Display output one screen at a time - Paginate Output
+## Viewing and Editing Files
+- 1 .`more`: Display output one screen at a time -Paginate Output
    
-   - **Example:**
-   - _ ```type longfile.txt | more
+      `type longfile.txt | more`
 
-  **4b. **`notepad`**
-   - **Usage:** Open files in Notepad for editing.
+- 2 .`notepad`: Open files in Notepad for editing.
    
-   - **Example:**
-   - _ ```notepad script.py
+      `notepad script.py`
 
-## **Running Programs and Scripts**
+## Running Programs and Scripts
 
-  **5a. **`Executing Programs`**
-   - **Usage:** Run executable files or scripts.
+- 1 .`exe`: Run executable files or scripts.
    
-   - **Example:**
-   - _ ```program.exe
+      `program.exe`
 
-  **5b. **`Running Python Scripts`**
-   - **Usage:** Execute Python scripts if Python is installed.
+- 2 .`python`: Execute Python scripts if Python is installed.
+      `python script.py`
+
+- 3 .`deploy`: Execute batch scripts (.bat or .cmd files).
+
+      `deploy.bat`
+
+## Environment Variables
+
+- 1 .`set`: Display, set, or remove environment variables.
+
+      `set  # Display all variables`
+      `set PATH  # Display PATH variable`
+      `set MY_VAR=HelloWorld`
+
+- 2 .`setx`: Set environment variables for future Command Prompt sessions.
+
+- Set Environment Variables Permanently
+      
+      `setx MY_VAR "HelloWorld`
+
+## Piping and Redirection
+
+- 1 .`dir`: Save command output to a file.
+
+- Redirect Output to a File
+
+      `dir > filelist.txt`
+
+- 2 .`echo`: Append command output to the end of a file.
+
+- Append Output to a File
+
+      `echo "New Line" >> filelist.txt`
+
+- 3 .`exe`:  Use a file as input for a command.
+
+- Redirect Input from a File
+
+      `program.exe < input.txt`
+
+## Piping and Redirection
+
+- 1 .`cls`:  Clear the Command Prompt screen.
    
-   - **Example:**
-   - _ ```python script.py
+      `cls`
 
-  **5c. **`Running Batch Files`**
-   - **Usage:** Execute batch scripts (.bat or .cmd files).
+- 2 .`help`:  Get help on commands
    
-   - **Example:**
-   - _ ```deploy.bat
+      `help dir`
 
-
-## **Environment Variables**
-
-  **6a. **`set`**
-   - **Usage:** Display, set, or remove environment variables.
+- 2 .`exit`:  Exit the Command Prompt
    
-   - **Example:**
-   - _ ```set  # Display all variables
-          set PATH  # Display PATH variable
-          set MY_VAR=HelloWorld
-
-  **6b. **`setx`** - Set Environment Variables Permanently
-   - **Usage:** Set environment variables for future Command Prompt sessions.
-   
-   - **Example:**
-   - _ ```setx MY_VAR "HelloWorld"
-
-## **Piping and Redirection**
-
-  **7a. **`Redirect Output to a File`**
-   - **Usage:** Save command output to a file.
-
-     - **Example:**
-     - _ ```dir > filelist.txt"
-
-  **7b. **`Append Output to a File`**
-   - **Usage:** Append command output to the end of a file.
-
-     - **Example:**
-     - _ ```echo "New Line" >> filelist.txt"
-
-  **7c. **`Redirect Input from a File`**
-   - **Usage:** Use a file as input for a command..
-
-     - **Example:**
-     - _ ```program.exe < input.txt"
-
-  **7d. **`Pipe Output to Another Command`**
-   - **Usage:** Use the output of one command as input to another.
-
-     - **Example:**
-     - _ ```dir | find "keyword""
-
-## **Piping and Redirection**
-
-  **8a. **`cls`**
-   - **Usage:** Clear the Command Prompt screen.
-   
-   - **Example:**
-   - _ ```cls
-
-   **8b. **`help`**
-   - **Usage:** Get help on commands.
-   
-   - **Example:**
-   - _ ```help dir
-
-  **8c. **`exit`**
-   - **Usage:** Exit the Command Prompt.
-   
-   - **Example:**
-   - _ ```exit
-
-
-
+      `exit`
 
   
-    
-
   
-[Refer Link](https://www.markdownguide.org/basic-syntax/)
+[Refer Link](https://www.markdownguide.org/basic-syntax/) - for more information abould 
 
 
 
