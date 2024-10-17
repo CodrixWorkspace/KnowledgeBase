@@ -3,7 +3,7 @@ name: Knowledge Base (Prod)
 on:
   push:
     branches:
-      - "stage"
+      - "main"
 
 jobs:
   sync-files:
