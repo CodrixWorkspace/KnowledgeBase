@@ -88,7 +88,7 @@ Your project contains the following important directories and files:
 
 Understanding the following key concepts will help you work effectively with React:
 
-1. Components
+1. <B>Components</B>
 
 Components are the building blocks of a React application.
 
@@ -97,7 +97,7 @@ Components are the building blocks of a React application.
 
 Learn more: [React Components](https://19.react.dev/learn/describing-the-ui)
 
-2. JSX (JavaScript XML)
+2. <B>JSX (JavaScript XML)</B>
 
 JSX is a syntax extension that allows mixing HTML with JavaScript.
 
@@ -109,17 +109,17 @@ function HelloReact() {
 ```
 Learn more: [Writing Markup with JSX](https://18.react.dev/learn/writing-markup-with-jsx)
 
+3. <B>Props and State</B>
+- Props: Short for properties; they are read-only inputs to components.
+- State: Represents mutable data that affects what is rendered.
 
+Learn more: [State and Lifecycle](https://18.react.dev/learn/managing-state)
 
+4. <B>Hooks</B>
 
+Hooks let you use state and other React features without writing a class.
 
+- <B><I>useState:</I></B> Allows you to add React state to functional components.
+- <B><I>useEffect:</I></B> Lets you perform side effects in functional components.
 
-
-
-
-
-
-
-
-
-
+Learn more: [Introducing Hooks](https://18.react.dev/reference/react/hooks)
