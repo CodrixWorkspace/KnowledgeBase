@@ -43,6 +43,7 @@
     }
     export default Counter;
 
+---
 
 #### 2. `useEffect` Hook
 
@@ -82,6 +83,7 @@
     }
     export default DataFetcher;
 
+ ---
 #### 3. `useContext` Hook
 
 - Purpose: Allows components to access context values directly, avoiding the need for props drilling.
@@ -114,13 +116,14 @@
 
 `Explanation`:`useContext` allows `ThemedComponent` to access `ThemeContext` directly without needing to pass it down through props
 
+---
 #### 4. `useReducer` Hook
 
 - Purpose: Manages complex state logic and is an alternative to useState, especially for multiple sub-values or complex state transitions.
 
 `Syntax`:
 
-const [state, dispatch] = useReducer(reducer, initialArg, init);
+    const [state, dispatch] = useReducer(reducer, initialArg, init);
 
 
 `Example: Counter with useReducer`
@@ -157,13 +160,15 @@ const [state, dispatch] = useReducer(reducer, initialArg, init);
 
 `Explanation`: `useReducer` uses a reducer function to update the state based on dispatched action
 
+---
+
 #### 5. `useRef` Hook
 
 - Purpose:  Holds mutable values across renders without causing re-renders. Commonly used to reference DOM elements or hold values between renders.
 
 `Syntax`:
 
-const refContainer = useRef(initialValue);
+    const refContainer = useRef(initialValue);
 
 `Example: Counter with useReducer`
 
@@ -187,9 +192,12 @@ const refContainer = useRef(initialValue);
     }
     export default FocusInput;
 
+---
 
-`Explanation`: `inputRef` holds a reference to the input element, allowing direct DOM manipulation
+**Explanation**: 
+  `inputRef` holds a reference to the input element, allowing direct DOM manipulation
 
+---
 
-`Conclusion`:
-This guide covered React’s core hooks with examples. Mastering these hooks will allow you to build dynamic, stateful components in functional React applications.
+**Conclusion**:
+   This guide covered React’s core hooks with examples. Mastering these hooks will allow you to build dynamic, stateful components in functional React applications.
