@@ -192,9 +192,7 @@
     }
     export default FocusInput;
 
----
-
-**Explanation**: 
+`Explanation`: 
   `inputRef` holds a reference to the input element, allowing direct DOM manipulation
 
 ---
