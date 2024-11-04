@@ -92,34 +92,77 @@ Understanding the following key concepts will help you work effectively with Rea
 
 Components are the building blocks of a React application.
 
-    - Functional Components: JavaScript functions that return JSX.
-    - Class Components: ES6 classes that extend React.Component.
+- Functional Components: JavaScript functions that return JSX.
+- Class Components: ES6 classes that extend React.Component.
 
-Learn more: [React Components](https://19.react.dev/learn/describing-the-ui)
+*Learn more:* [React Components](https://19.react.dev/learn/describing-the-ui)
 
 2. <B>JSX (JavaScript XML)</B>
 
 JSX is a syntax extension that allows mixing HTML with JavaScript.
 
-<B><I>Example:</I></B>
+<B>*Example:*</B>
 ```
 function HelloReact() {
   return <h1>Hello, React!</h1>;
 }
 ```
-Learn more: [Writing Markup with JSX](https://18.react.dev/learn/writing-markup-with-jsx)
+*Learn more:* [Writing Markup with JSX](https://18.react.dev/learn/writing-markup-with-jsx)
 
 3. <B>Props and State</B>
 - Props: Short for properties; they are read-only inputs to components.
 - State: Represents mutable data that affects what is rendered.
 
-Learn more: [State and Lifecycle](https://18.react.dev/learn/managing-state)
+*Learn more:* [Passing Props to a Component](https://18.react.dev/learn/passing-props-to-a-component)
 
 4. <B>Hooks</B>
 
 Hooks let you use state and other React features without writing a class.
 
-- <B><I>useState:</I></B> Allows you to add React state to functional components.
-- <B><I>useEffect:</I></B> Lets you perform side effects in functional components.
+- <B>*useState:*</B> Allows you to add React state to functional components.
+- <B>*useEffect:*</B> Lets you perform side effects in functional components.
 
-Learn more: [Introducing Hooks](https://18.react.dev/reference/react/hooks)
+*Learn more:* [Using the State Hook](https://18.react.dev/reference/react/hooks#state-hooks)
+
+5. <B>Handling Events</B>
+
+React handles events similarly to DOM elements but follows camelCase naming.
+
+```
+<button onClick={handleClick}>Click Me</button>
+```
+*Learn more:* [Responding to Events](https://18.react.dev/learn/responding-to-events)
+
+6. <B>Conditional Rendering</B>
+
+Render components or elements based on conditions.
+
+```
+{isLoggedIn ? <Dashboard /> : <Login />}
+```
+*Learn more:* [Conditional Rendering](https://18.react.dev/learn/conditional-rendering)
+
+7. <B>Lists and Keys</B>
+
+Rendering lists using the map() function and assigning unique keys to each item.
+
+```
+{items.map((item) => (
+  <li key={item.id}>{item.name}</li>
+))}
+```
+*Learn more:* [Rendering Lists](https://18.react.dev/learn/rendering-lists)
+
+## Doing more with React 
+
+- [Working with Forms](https://18.react.dev/reference/react-dom/components/form#noun-labs-1201738-(2))
+- [Sharing State Between Components](https://18.react.dev/learn/sharing-state-between-components)
+- [Thinking in React](https://18.react.dev/learn/thinking-in-react)
+
+## Conclusion
+
+Congratulations! You've successfully set up a React application on your Windows machine using VS Code. This guide covered the basics of creating and running a React app and introduced key concepts to help you on your journey.
+
+Continue exploring and building more complex components. The React ecosystem is vast, with numerous libraries and tools to enhance your development experience.
+
+Happy coding!
