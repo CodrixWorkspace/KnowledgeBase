@@ -1,4 +1,4 @@
-# Windows Command Line Instructions for Developers
+# Essential Guide to Windows Command Line Basics
 
 This guide provides a list of essential Windows command line instructions that developers commonly use in their day-to-day development tasks. It's designed for beginners who want to learn and reference these commands for future use. 
 
