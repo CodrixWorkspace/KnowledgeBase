@@ -107,7 +107,7 @@ To make your files accessible on the web, set a bucket policy that allows public
 - Click on the link to verify that your React app is live!
 
 
-## This guide should help you successfully deploy your React app on AWS S3 and serve it as a static website. Let me know if you need more details on any step!
+### This guide should help you successfully deploy your React app on AWS S3 and serve it as a static website. Let me know if you need more details on any step!
 
 
 
