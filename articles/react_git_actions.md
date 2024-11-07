@@ -97,6 +97,38 @@ To make your files accessible on the web, set a bucket policy that allows public
 
 
 - Save changes.
+  
+
+## Here is the pipeline format to push react application to AWS s3 through GitActions
+
+        name: React-Git-Actions(Main)
+
+        on:
+          push:
+            branches:
+              - "main"
+
+        jobs:
+          sync-files:
+            runs-on: ubuntu-latest
+
+            steps:
+            - name: Checkout Code
+              uses: actions/checkout@v3
+
+            - name: Configure AWS Credentials
+              uses: aws-actions/configure-aws-credentials@v2
+              with:
+                aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                aws-region: "YOUR_AWS_REGION"
+
+            - name: Sync Files to S3
+              run: |
+                aws s3 sync build/ s3://"YOUR_S3_BUCKET_NAME" --acl public-read
+
+- Replace YOUR_BUCKET_NAME with your bucket name and YOUR_AWS_REGION with 
+  your respective region and  replace the secrets as well
 
 
 ## 6. Access the Static Website
@@ -105,6 +137,7 @@ To make your files accessible on the web, set a bucket policy that allows public
 - In the Static website hosting section, you’ll see a URL endpoint.
   
 - Click on the link to verify that your React app is live!
+
 
 
 ### This guide should help you successfully deploy your React app on AWS S3 and serve it as a static website. Let me know if you need more details on any step!
