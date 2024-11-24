@@ -26,8 +26,6 @@ Open the Command Prompt:
 
       cd ~/Documents
 
-_Note:_ Use `cd ..` to move up one directory level.
-
 - Clears the screen.
 
       cls
@@ -59,72 +57,58 @@ _Note:_ Use `cd ..` to move up one directory level.
       ren oldname.txt newname.txt
       
 
-## Viewing and Editing Files
-- `more`: Display output one screen at a time -Paginate Output
-   
-      `type longfile.txt | more`
+## Advanced Navigation
 
-- `notepad`: Open files in Notepad for editing.
-   
-      `notepad script.py`
+- Move to the parent directory:
 
-## Running Programs and Scripts
+      cd ..
 
-- `exe`: Run executable files or scripts.
-   
-      `program.exe`
+- Using absolute paths:
 
-- `python`: Execute Python scripts if Python is installed.
-      `python script.py`
+      cd C:\Users\YourName\Documents
 
-- `deploy`: Execute batch scripts (.bat or .cmd files).
+- Relative paths:
 
-      `deploy.bat`
+      cd ..\AnotherFolder
+            
+
+## Customizing the Command Prompt
+
+- Change text color:
+
+      color 0A
+
+    0A sets the background to black and text to green.
 
 ## Environment Variables
 
-- `set`: Display, set, or remove environment variables.
+Display, set, or remove environment variables.
 
-      `set  # Display all variables`
-      `set PATH  # Display PATH variable`
-      `set MY_VAR=HelloWorld`
-
-- `setx`: Set environment variables for future Command Prompt sessions.
-
-- Set Environment Variables Permanently
-      
-      `setx MY_VAR "HelloWorld`
+      set  # Display all variables
+      set PATH  # Display PATH variable
+      set MY_VAR=HelloWorld   # Set MY_VAR variable
 
 ## Piping and Redirection
-
-- `dir`: Save command output to a file.
 
 - Redirect Output to a File
 
-      `dir > filelist.txt`
+      dir > filelist.txt
 
-- `echo`: Append command output to the end of a file.
+- Append Content to a File
 
-- Append Output to a File
+      echo "New Line" >> filelist.txt
 
-      `echo "New Line" >> filelist.txt`
+Use a file as input for a command.
 
-- `exe`:  Use a file as input for a command.
+      program.exe < input.txt
 
-- Redirect Input from a File
+## Tips and Tricks
 
-      `program.exe < input.txt`
+- Tab Completion: Start typing a file or folder name and press Tab to auto-complete
+- Command History: Use the ↑ and ↓ arrow keys to cycle through previous commands
 
-## Piping and Redirection
+## Common Errors and Solutions
 
-- `cls`:  Clear the Command Prompt screen.
-   
-      `cls`
-
-- `help`:  Get help on commands
-   
-      `help dir`
-
-- `exit`:  Exit the Command Prompt
-   
-      `exit`
+- **Access Denied:** Run Command Prompt as Administrator (Right-click > Run as Administrator).
+- **Unknown Command:** Ensure the command is typed correctly and the required program or script is installed.
+- **File Not Found:** Double-check the file path and file name for accuracy.
