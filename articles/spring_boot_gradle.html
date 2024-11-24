@@ -1,0 +1,111 @@
+<article>
+    <h1>Spring Boot with Gradle</h1>
+    <p>
+        This guide provides a step-by-step approach, so you can master the art of creating a Spring Boot project with
+        Gradle using just the command line — and later bring it to life in IntelliJ IDEA.
+    </p>
+    <h2>
+        Prerequisites
+    </h2>
+    <p>
+        To follow this guide, ensure you have the following installed and configured on your system:
+    </p>
+    <ol type="1">
+        <li>
+            <b>Java Development Kit (JDK) :</b> Java 8 or higher (preferably Java 11 or 17).
+            <p>Verify installation by running <code class="inline">java -version</code></p>
+        </li>
+        <li>
+            <b>Gradle</b>
+            <p>Verify installation by running <code class="inline">gradle -v</code></p>
+        </li>
+        <li>
+            <b>IntelliJ IDEA</b>
+        </li>
+        <li>
+            <b>Command Line Tool</b>
+        </li>
+    </ol>
+    <p>This setup ensures a smooth start to creating and managing your Spring Boot project.</p>
+    <h2>
+        Setup Project Structure
+    </h2>
+    <li>Open Terminal or Command prompt and navigate to the directory where you want to create the project
+    </li>
+    <code class="section">
+        cd ~/Documents/Workspace/EducateWorkspace
+    </code>
+    <li>
+        Create a new directory for you project and switch to the newly created directory
+    </li>
+    <code class="section">
+        mkdir tspark-springboot-gradle
+        <br>    
+        cd tspark-springboot-gradle
+    </code>
+    <h2>
+        Initialize the Gradle Project
+    </h2>
+    <li>
+        Generate the project structure using Gradle’s <code class="inline">init</code> command:
+    </li>
+    <code class="section">
+        gradle init
+    </code>
+    <p>
+        Follow these prompts during initialization:
+    <ul>
+        <li>
+            <b>Select type of project:</b> Application
+        </li>
+        <li>
+            <b>Select implementation language:</b> Java
+        </li>
+        <li>
+            <b>Enter target Java version (min: 7, default: 21):</b> 17
+        </li>
+        <li>
+            <b>Project name:</b> tspark-springboot-gradle
+        </li>
+        <li>
+            <b>Select application structure:</b> Single application project
+        </li>
+        <li>
+            <b>Select build script DSL:</b> Groovy
+        </li>
+        <li>
+            <b>Select test framework:</b> JUnit4
+        </li>
+    </ul>
+    </p>
+    <p>
+        Generate a Gradle wrapper:
+        <code class="section">
+        gradle wrapper
+    </code>
+        This creates a <code class="inline">gradlew</code> script for Linux/Mac and <code
+            class="inline">gradlew.bat</code> for Windows, along with the <code class="inline">gradle/wrapper</code>
+        directory containing wrapper files.
+    </p>
+    <p>
+        Your project directory should look like this:
+        <mark>Display the image here</mark>
+    </p>
+    <h2>
+        Opening the Project in IntelliJ IDEA or VS Code
+    </h2>
+    <p>
+        Now is the perfect time to open the project in the IDE of your choice. You can launch your IDE and manually
+        browse to open the project directory, or simply run the following command from the project folder for
+        convenience
+    </p>
+    <code class="section">
+        open -na "IntelliJ IDEA CE.app" .   #For opening in Intellij
+        <br>
+        code .   #For opening in vscode
+    </code>
+    <p>
+        <i>Note: Ensure your IDE is added to your system’s PATH for these commands to work.</i>
+    </p>
+
+</article>
