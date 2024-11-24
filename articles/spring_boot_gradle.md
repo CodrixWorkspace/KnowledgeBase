@@ -63,3 +63,6 @@ Now is the perfect time to open the project in the IDE of your choice. You can l
         code .   #For opening in vscode
 
 _Note:_ Ensure your IDE is added to your system’s PATH for these commands to work.
+
+
+<mark>Finish the rest of the guide</mark>
