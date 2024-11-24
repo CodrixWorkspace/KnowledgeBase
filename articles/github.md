@@ -1,4 +1,4 @@
-# A Beginner's Guide to Collaborative Programming Using Git and GitHub
+# A Beginner's Guide to Git and GutHub
 
 *Welcome to the world of collaborative programming! This guide is designed for absolute beginners to help you understand and use Git and GitHub effectively through the command line.*
 
@@ -78,7 +78,7 @@ Push your branch to the remote repository:
 - Add a title and description for your pull request.
 - Click "Create pull request".
 
- ## 8. Merging Pull Requests
+## 8. Merging Pull Requests
 
 If you have write access:
 
