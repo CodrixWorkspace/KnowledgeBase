@@ -64,5 +64,88 @@ Now is the perfect time to open the project in the IDE of your choice. You can l
 
 _Note:_ Ensure your IDE is added to your system’s PATH for these commands to work.
 
+## Update the `build.gradle` File
 
-<mark>Finish the rest of the guide</mark>
+Open the build.gradle file in your IDE and modify it to include Spring Boot dependencies and plugins
+
+```groovy
+plugins {
+  id 'org.springframework.boot' version '3.1.4'
+  id 'io.spring.dependency-management' version '1.1.3'
+  id 'java'
+}
+
+group = 'org.techspark'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-web-test'
+}
+```
+
+## Main Application Class
+
+The main application class in a Spring Boot project serves as the entry point for the application. It contains the main method, which starts the Spring Boot application and initializes its runtime environment.
+
+- Create a package of your choice under the `src\main\java` folder. (eg: `org.techspark`)
+- Under the newly created package create a new java class file `Application.java` with below content
+
+```java
+package org.techspark;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Application {
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+}
+```
+
+- Lets add a simple controller under the same package `GreetingController.java`
+
+```java
+package org.techspark;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+
+@RestController
+public class GreetingController {
+    @GetMapping("/")
+    public String greeting() {
+        return "Greeting from TechSpark";
+    }
+}
+```
+
+## Run The Application
+
+Run the application from the IDE or using gradle command `./gradlew bootRun`
+
+Open a browser or use curl to visit the default endpoint:
+
+```shell
+curl http://localhost:8080
+```
+
+You would see the below message
+
+```shell
+Greeting from TechSpark
+```
+
+I hope this article has refreshed your skills or introduced you to a few new tricks for building Spring Boot projects with Gradle from scratch. Whether you’re a seasoned developer or just starting with Spring Boot, taking the time to create a project manually helps deepen your understanding and gives you greater control over your setup.
+
+To streamline your future projects, I recommend creating a skeleton repository with all the basic configurations and dependencies you frequently use. This will save you time and effort when starting new services.
+
+You can find the final code at : 👉 [My Spring Boot Skeleton Repository](https://github.com/TechSparkWorkspace/tspark-springboot-gradle.git)
