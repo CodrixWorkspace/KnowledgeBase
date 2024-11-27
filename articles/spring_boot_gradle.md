@@ -51,7 +51,7 @@ Generate a Gradle wrapper:
 
 This creates a `gradlew` script for Linux/Mac and `gradlew.bat` for Windows, along with the `gradle/wrapper` directory containing wrapper files.
 
-![Image Description](http://acs.amazonaws.com/groups/global/AllUsers "Image Title")
+![Image Description](https://articleimages.s3.ap-south-1.amazonaws.com/tree-736885_1920.jpg "Image Title")
 
 
 ## Opening the Project in IntelliJ IDEA or VS Code
