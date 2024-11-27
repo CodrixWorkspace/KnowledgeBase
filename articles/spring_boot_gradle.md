@@ -52,7 +52,7 @@ Generate a Gradle wrapper:
 This creates a `gradlew` script for Linux/Mac and `gradlew.bat` for Windows, along with the `gradle/wrapper` directory containing wrapper files.
 
 Your project directory should look like this:
-    ![A simple example image](https://via.placeholder.com/150 "Placeholder Image")
+    ![A simple example image](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*UCW50sWRorDfIdrXLWzJpA.png "Placeholder Image")
 
 
 ## Opening the Project in IntelliJ IDEA or VS Code
