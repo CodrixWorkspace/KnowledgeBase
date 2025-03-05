@@ -80,7 +80,7 @@ curl "http://localhost:8080/api/wish?category=activity"
 
 ## Validation for GET Request with Path Param
 
-When handling path parameters in a GET request, you can validate them using @PathVariable in combination with validation annotations like @NotBlank, @Size, or @Pattern. 
+When handling path parameters in a GET request, you can validate them using @PathVariable in combination with validation annotations like @NotBlank, @Size, or @Pattern.
 
 Here's an example:
 
@@ -101,9 +101,7 @@ public class WishListController {
 
 ```
 
-
 Let’s test this with various inputs using curl
-
 
 ```java
  curl "http://localhost:8080/api/wish/2" 

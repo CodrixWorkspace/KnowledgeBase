@@ -16,83 +16,83 @@ Alternatively if you’re a started or like me and always looking to get better 
 
 Add the Lombok dependency to your build.gradle file:
 
-```
-dependencies {
-    implementation 'org.projectlombok:lombok:1.18.36'
-    annotationProcessor 'org.projectlombok:lombok:1.18.36'
-}
+    ```
+    dependencies {
+        implementation 'org.projectlombok:lombok:1.18.36'
+        annotationProcessor 'org.projectlombok:lombok:1.18.36'
+    }
 
-```
+    ```
 
 ## Getter and Setter Annotations
 
 - Automatically generates getter and setter methods for class fields
 - Apply `@Getter` and `@Setter` at the class level to generate methods for all fields or on individual fields for fine-grained control
 
-```java
-@Getter
-@Setter
-public class Puzzle {
-    private Integer puzzleId;
-    private String question;
-    private String difficulty;
-    private String answer;
-    private String category;
+    ```java
+    @Getter
+    @Setter
+    public class Puzzle {
+        private Integer puzzleId;
+        private String question;
+        private String difficulty;
+        private String answer;
+        private String category;
 
-}
-```
+    }
+    ```
 
 Here is a JUnit Test Case to validate the setters and getters
 
-```java
-public class PuzzleTest {
+    ```java
+    public class PuzzleTest {
 
-    @Test
-    void testGettersAndSetters() {
-        Puzzle puzzle = new Puzzle();
-        puzzle.setQuestion("The more you take, the more you leave behind. What am I?");
-        puzzle.setDifficulty("Easy");
-        puzzle.setAnswer("Footsteps");
+        @Test
+        void testGettersAndSetters() {
+            Puzzle puzzle = new Puzzle();
+            puzzle.setQuestion("The more you take, the more you leave behind. What am I?");
+            puzzle.setDifficulty("Easy");
+            puzzle.setAnswer("Footsteps");
 
-        assertEquals("Footsteps", puzzle.getAnswer());
-        assertEquals("Easy", puzzle.getDifficulty());
+            assertEquals("Footsteps", puzzle.getAnswer());
+            assertEquals("Easy", puzzle.getDifficulty());
+        }
+
     }
-
-}
-```
+    ```
 
 ## ToString Annotations
 
 - Generates a toString() method
 - Use @ToString(exclude = "password") to exclude sensitive fields.
 
-```java
-@Getter
-@Setter
-@ToString(exclude = "answer")
-public class Puzzle {
-    private Integer puzzleId;
-    private String question;
-    private String difficulty;
-    private String answer;
-    private String category;
+    ```java
+    @Getter
+    @Setter
+    @ToString(exclude = "answer")
+    public class Puzzle {
+        private Integer puzzleId;
+        private String question;
+        private String difficulty;
+        private String answer;
+        private String category;
 
-}
-```
+    }
+    ```
 
 Validate the `toString` annotation
 
-```java
- @Test
-    void testToString() {
-        Puzzle puzzle = new Puzzle();
-        puzzle.setQuestion("The more you take, the more you leave behind. What am I?");
-        puzzle.setDifficulty("Easy");
-        puzzle.setAnswer("Footsteps");
+    ```java
+    @Test
+        void testToString() {
+            Puzzle puzzle = new Puzzle();
+            puzzle.setQuestion("The more you take, the more you leave behind. What am I?");
+            puzzle.setDifficulty("Easy");
+            puzzle.setAnswer("Footsteps");
 
-        System.out.println(puzzle.toString());
-    }
-```
+            System.out.println(puzzle.toString());
+        }
+    ```
 
 Output of the `toString` method
 
@@ -103,37 +103,37 @@ Output of the `toString` method
 - Generates equals() and hashCode() method's
 - Use @EqualsAndHashCode(onlyExplicitlyIncluded = true) and @EqualsAndHashCode.Include for precise control over which fields are included
 
-```java
-@Getter
-@Setter
-@ToString(exclude = "answer")
-@EqualsAndHashCode(exclude = {"puzzleId", "difficulty", "category"})
-@AllArgsConstructor
-@NoArgsConstructor
-public class Puzzle {
-    private Integer puzzleId;
-    private String question;
-    private String difficulty;
-    private String answer;
-    private String category;
+    ```java
+    @Getter
+    @Setter
+    @ToString(exclude = "answer")
+    @EqualsAndHashCode(exclude = {"puzzleId", "difficulty", "category"})
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public class Puzzle {
+        private Integer puzzleId;
+        private String question;
+        private String difficulty;
+        private String answer;
+        private String category;
 
-}
-```
+    }
+    ```
 
 Validate the `equals()` and `hashCode()` methods
 
-```java
-    @Test
-    public void testEqualsWithCustomEqualsAndHashCode() {
-        Puzzle puzzle1 = new Puzzle(1, "The more you take, the more you leave behind. What am I?", "easy", "Footsteps", "riddle");
-        Puzzle puzzle2 = new Puzzle(2, "What has many keys but can’t open a single lock?", "medium", "A piano", "riddle");
-        Puzzle puzzle3 = new Puzzle(3, "What has many keys but can’t open a single lock?", "easy", "A piano", "riddle");
-        Puzzle puzzle4 = new Puzzle(4, "What has hands but can’t clap?", "medium", "A clock", "riddle");
+    ```java
+        @Test
+        public void testEqualsWithCustomEqualsAndHashCode() {
+            Puzzle puzzle1 = new Puzzle(1, "The more you take, the more you leave behind. What am I?", "easy", "Footsteps", "riddle");
+            Puzzle puzzle2 = new Puzzle(2, "What has many keys but can’t open a single lock?", "medium", "A piano", "riddle");
+            Puzzle puzzle3 = new Puzzle(3, "What has many keys but can’t open a single lock?", "easy", "A piano", "riddle");
+            Puzzle puzzle4 = new Puzzle(4, "What has hands but can’t clap?", "medium", "A clock", "riddle");
 
-        assertEquals(puzzle2, puzzle3, "The puzzle are the same");
-        assertNotEquals(puzzle1, puzzle4, "The puzzles are different");
-    }
-```
+            assertEquals(puzzle2, puzzle3, "The puzzle are the same");
+            assertNotEquals(puzzle1, puzzle4, "The puzzles are different");
+        }
+    ```
 
 Notice that we are using `@AllArgsConstructor` and `@NoArgsConstructor` in the above example to automatically generate both parameterized and no-argument constructors for our purposes. This approach eliminates the need to manually code constructors, reducing boilerplate and potential errors, and enhancing productivity
 
@@ -144,69 +144,69 @@ Notice that we are using `@AllArgsConstructor` and `@NoArgsConstructor` in the a
 
 A shortcut that bundles `@Getter`, `@Setter`, `@ToString`, `@EqualsAndHashCode`, and `@RequiredArgsConstructor.Ideal` for simple data carrier classes (DTOs).
 
-```java
-@ToString(exclude = "answer")
-@EqualsAndHashCode(exclude = {"puzzleId", "difficulty", "category"})
-@Data
-public class Puzzle {
-    private final Integer puzzleId;
-    private final String question;
-    private final String difficulty;
-    private final String answer;
-    private final String category;
-}
-```
+    ```java
+    @ToString(exclude = "answer")
+    @EqualsAndHashCode(exclude = {"puzzleId", "difficulty", "category"})
+    @Data
+    public class Puzzle {
+        private final Integer puzzleId;
+        private final String question;
+        private final String difficulty;
+        private final String answer;
+        private final String category;
+    }
+    ```
 
 ## Builder Annotation
 
 Implements the Builder pattern. Enhances readability and manageability when dealing with classes that have many fields.
 
-```java
-@Data
-@Builder
-public class Puzzle {
-    private final Integer puzzleId;
-    private final String question;
-    private final String difficulty;
-    private final String answer;
-    private final String category;
+    ```java
+    @Data
+    @Builder
+    public class Puzzle {
+        private final Integer puzzleId;
+        private final String question;
+        private final String difficulty;
+        private final String answer;
+        private final String category;
 
-}
-```
+    }
+    ```
 
 Validate the `@Builder` annotation
 
-```java
-    @Test
-    public void testBuilder() {
-        Puzzle puzzle = Puzzle.builder()
-               .puzzleId(1)
-               .question("The more you take, the more you leave behind. What am I?")
-               .difficulty("Easy")
-               .answer("Footsteps")
-               .category("riddle")
-               .build();
+    ```java
+        @Test
+        public void testBuilder() {
+            Puzzle puzzle = Puzzle.builder()
+                .puzzleId(1)
+                .question("The more you take, the more you leave behind. What am I?")
+                .difficulty("Easy")
+                .answer("Footsteps")
+                .category("riddle")
+                .build();
 
-        assertEquals("Footsteps", puzzle.getAnswer());
-        assertEquals("Easy", puzzle.getDifficulty());
-    }
-```
+            assertEquals("Footsteps", puzzle.getAnswer());
+            assertEquals("Easy", puzzle.getDifficulty());
+        }
+    ```
 
 ## Logging Annotation
 
 Lombok provides `@Slf4j` a logging annotation that generates a logger instance. This eliminates the need to manually declare and initialize logger instances.
 
-```java
-@RestController
-@Slf4j
-public class GreetingController {
-    @GetMapping("/greet")
-    public String greet() {
-        log.debug("Greeting controller triggered");
-        return "Hello, TechSpark! Let's use Lombok effectively";
+    ```java
+    @RestController
+    @Slf4j
+    public class GreetingController {
+        @GetMapping("/greet")
+        public String greet() {
+            log.debug("Greeting controller triggered");
+            return "Hello, TechSpark! Let's use Lombok effectively";
+        }
     }
-}
-```
+    ```
 
 ## Advanced Lombok Usage
 
@@ -223,4 +223,4 @@ public class GreetingController {
 - **Combine Annotations Wisely** : You can use combinations like `@Value` and `@Builder` to create immutable objects with builder patterns.
 - **Consistent Use** : Establish team conventions for Lombok usage to maintain code consistency
 
-Lombok is a powerful tool that, when used effectively, can significantly boost productivity in Spring Boot applications. By reducing boilerplate code, developers can focus on business logic and write cleaner, more maintainable code. However, it’s essential to understand the implications of using Lombok and adhere to best practices to avoid potential pitfalls
+Lombok is a powerful tool that, when used effectively, can significantly boost productivity in Spring Boot applications. By reducing boilerplate code, developers can focus on business logic and write cleaner, more maintainable code. However, it’s essential to understand the implications of using Lombok and adhere to best practices to avoid potential pitfalls.
