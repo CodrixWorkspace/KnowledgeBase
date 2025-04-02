@@ -128,18 +128,32 @@ public class ExceptionUtil {
 }
 ```
 
-### Ensuring Services Always Throw `ApplicationException`
+### A Balanced Strategy for Throwing Exceptions from Services
 
-All services should use `ExceptionUtil` to throw exceptions. By always throwing a single, consistent `ApplicationException` from service methods, we simplify the exception handling flow, making it predictable and easier to debug.
+To avoid excessive boilerplate and maintain clean service methods, we recommend a **balanced approach**:
+
+- **Use `ApplicationException` for business logic errors or validation failures** that you explicitly want to expose to API consumers.
+
+- **Let technical or unexpected exceptions bubble up,** and handle them centrally in the `GlobalExceptionHandler`.
+
+This keeps service methods clean and intentional, while still preserving flexibility.
+
+Here's how a typical service might look. We'll use a `PortfolioService` example that demonstrates a **mixed strategy**:
+
+- `ApplicationException` is thrown for expected business and validation errors.
+- Unexpected exceptions are allowed to bubble up and are handled in the global exception handler.
 
 ```java
-@Service
-@RequiredArgsConstructor
 public class PortfolioService {
 
     private final PortfolioRepository portfolioRepository;
     private final StockMapper stockMapper = StockMapper.INSTANCE;
     private final ExceptionUtil exceptionUtil;
+
+    public PortfolioService(PortfolioRepository portfolioRepository, ExceptionUtil exceptionUtil) {
+        this.portfolioRepository = portfolioRepository;
+        this.exceptionUtil = exceptionUtil;
+    }
 
     public StockDTO createStock(StockDTO stockDTO) {
         try {
@@ -147,7 +161,7 @@ public class PortfolioService {
             Stock savedStock = portfolioRepository.save(stock);
             return stockMapper.toStockDTO(savedStock);
         } catch (Exception ex) {
-            exceptionUtil.throwException(ErrorCode.STORAGE_ERROR, "Database error while saving user", ex);
+            exceptionUtil.throwException(ErrorCode.STORAGE_ERROR, "Database error while saving stock", ex);
         }
         return null;
     }
@@ -161,13 +175,13 @@ public class PortfolioService {
 
     public StockDTO getStockById(Long id) {
         Stock stock = portfolioRepository.findById(id)
-                .orElseThrow(exceptionUtil.exception(STORAGE_ERROR_NOTFOUND, "Stock not found with id :" + id));
+                .orElseThrow(exceptionUtil.exception(ErrorCode.STORAGE_ERROR, "Stock not found with id: " + id));
         return stockMapper.toStockDTO(stock);
     }
 
     public StockDTO updateStock(Long id, StockDTO stockDTO) {
         Stock existingStock = portfolioRepository.findById(id)
-                .orElseThrow(exceptionUtil.exception(STORAGE_ERROR_NOTFOUND, "Stock not found with id :" + id));
+                .orElseThrow(exceptionUtil.exception(ErrorCode.STORAGE_ERROR, "Stock not found with id: " + id));
 
         existingStock.setName(stockDTO.getName());
         existingStock.setTickerSymbol(stockDTO.getTickerSymbol());
@@ -176,14 +190,14 @@ public class PortfolioService {
         try {
             return stockMapper.toStockDTO(portfolioRepository.save(existingStock));
         } catch (Exception ex) {
-            exceptionUtil.throwException(ErrorCode.STORAGE_ERROR, "Database error while saving user", ex);
+            exceptionUtil.throwException(ErrorCode.STORAGE_ERROR, "Database error while updating stock", ex);
         }
         return null;
     }
 
     public void deleteStock(Long id) {
         if (!portfolioRepository.existsById(id)) {
-            exceptionUtil.throwException(STORAGE_ERROR_NOTFOUND, "Stock not found with id :" + id);
+            exceptionUtil.throwException(ErrorCode.STORAGE_ERROR, "Stock not found with id: " + id);
         }
         portfolioRepository.deleteById(id);
     }
@@ -228,6 +242,13 @@ public class GlobalExceptionHandler {
         ErrorResponse errorResponse = new ErrorResponse(errorCode.getCode(), ex.getMessage());
         return ResponseEntity.status(errorCode.getHttpStatus()).body(errorResponse);
     }
+
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ErrorResponse> handleUnexpectedException(Exception ex) {
+        log.error("Unhandled Exception: {}", ex.getMessage(), ex);
+        ErrorResponse errorResponse = new ErrorResponse("5000", "Unexpected server error");
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(errorResponse);
+    }
 }
 ```
 
@@ -266,12 +287,12 @@ Here are a few examples of structured error responses handled by our system:
 
 By following these best practices, we can ensure:
 
-- A single, standardized exception handling mechanism (ApplicationException).
-- A reusable exception utility (``) to reduce redundancy.
-- Meaningful error codes categorized for different scenarios.
-- Consistent API responses with ErrorResponse.
-- Automatic HTTP status mapping based on error types.
-- Stack traces are preserved for better debugging.
-- Centralized logging only in the Global Exception Handler, avoiding duplicate logs.
+- A single, standardized exception handling mechanism (`ApplicationException`).
+- A reusable exception utility (`ExceptionUtil`) to reduce redundancy.
+- **Meaningful error codes** categorized for different scenarios.
+- **Consistent API responses** with `ErrorResponse`.
+- **Automatic HTTP status mapping** based on error types.
+- **Stack traces are preserved** for better debugging.
+- **Centralized logging only in the Global Exception Handler**, avoiding duplicate logs.
 
 You can explore the complete working examples in our [GitHub repository](https://github.com/TechSparkWorkspace/tspark-springboot-exception-handling) ⭐️
