@@ -71,3 +71,22 @@ If you're new to BPMN or Flowable, here's a quick breakdown of the core componen
     Marks the end of the workflow. No steps are executed beyond this point.
 
 These components are the foundation of many business process flows and give you the power to model real-world operations with clarity and control.
+
+## 🚀 Running the Demo
+
+- Clone the repo:
+
+```bash
+git clone https://github.com/TechSparkWorkspace/tspark-trade-workflow.git
+cd tspark-trade-workflow
+```
+
+- Start the app
+
+```bash
+./gradlew bootRun
+```
+
+- Open Swagger UI to test APIs:
+
+[http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
