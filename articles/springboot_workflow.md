@@ -42,10 +42,6 @@ This BPMN diagram consists of the following elements:
 - 🔹 Service Task (Execute Trade) – Executes the trade
 - 🔹 End Event – Ends the workflow
 
-Once modeled, export the process as XML and place it under:
-
-src/main/resources/processes/tradeApprovalProcess.bpmn
-
 ## 🧠 Understanding the Workflow Components
 
 If you're new to BPMN or Flowable, here's a quick breakdown of the core components used in our diagram:
