@@ -30,7 +30,7 @@ Once modeled, export the process as XML (e.g., tradeApprovalProcess.bpmn) and pl
 
 Here's a snapshot of the workflow diagram that powers this project:
 
-![Trade Approval Workflow Diagram](https://github.com/CodrixWorkspace/KnowledgeBase/blob/23bc5d693af389a874f6a8b0605ade3e13cf89cb/articles/images/trade_approval_process.png)
+![Trade Approval Workflow Diagram](https://raw.githubusercontent.com/CodrixWorkspace/KnowledgeBase/main/articles/images/trade_approval_process.png)
 
 This BPMN diagram consists of the following elements:
 
