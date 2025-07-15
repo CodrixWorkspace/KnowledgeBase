@@ -86,3 +86,82 @@ cd tspark-trade-workflow
 - Open Swagger UI to test APIs:
 
 [http://localhost:8080/swagger-ui.html](http://localhost:8080/swagger-ui.html)
+
+## ⚙️ Interacting with the Workflow
+
+This project includes a dedicated controller (WorkflowController) to help you inspect and manage your running workflows directly through REST APIs. You can access these endpoints via Swagger or Postman to streamline debugging and manual flow control.
+
+### 📌 Endpoints Overview
+
+- GET /api/workflow/instances — List all active process instances.
+- GET /api/workflow/tasks — View user tasks. You can filter by:
+  - ?assignee=john → tasks assigned to a user
+  - ?candidateGroup=managers → tasks waiting for a group
+- POST /api/workflow/tasks/{taskId}/complete — Complete a user task manually. Accepts an optional JSON body to pass variables.
+
+Once the application is up and running, here’s how you can interact with the workflow and test different scenarios:
+
+#### 🔄 Triggering the Workflow
+
+Use the following `curl` command to simulate a trade request:
+
+```bash
+curl -X POST http://localhost:8080/api/trade/start \
+  -H "Content-Type: application/json" \
+  -d '{
+        "symbol": "SPY",
+        "quantity": 5,
+        "orderType": "PUT_CREDIT_SPREAD"
+      }'
+```
+
+- If the trade meets normal risk conditions, it will automatically proceed to execution.
+- If it is flagged as high-risk, it will pause and wait for manual manager approval.
+
+You can customize the `TradeValidationService` to simulate various risk thresholds.
+
+- If the trade meets normal risk conditions, it will automatically proceed to execution.
+- If it is flagged as high-risk, it will pause and wait for manual manager approval.
+
+#### 🧾 Viewing Running Process Instances
+
+Use the following curl command to view all active process instances:
+
+```bash
+curl -X GET http://localhost:8080/api/workflow/instances
+```
+
+This helps you debug or monitor ongoing workflows.
+
+#### 👤 Viewing User Tasks (Manager Approval)
+
+Since we haven't assigned the task to a specific user or group, you can list all unassigned tasks with:
+
+`curl -X GET "http://localhost:8080/api/workflow/tasks"`
+
+If you later update your process to assign tasks to users or groups, you can add filters like `?assignee=john` or `?candidateGroup=managers`
+
+#### ✅ Completing a User Task
+
+Once you have the task ID, complete it using this `curl` command:
+
+```bash
+curl -X POST http://localhost:8080/api/workflow/tasks/{taskId}/complete \
+  -H "Content-Type: application/json" \
+  -d '{}'
+```
+
+To pass additional variables when completing the task:
+
+```bash
+curl -X POST http://localhost:8080/api/workflow/tasks/{taskId}/complete \
+  -H "Content-Type: application/json" \
+  -d '{
+        "approved": true,
+        "reviewedBy": "john"
+      }'
+```
+
+Replace `{taskId}` with the actual ID returned from the task list API.
+
+This moves the workflow forward to the trade execution step.
