@@ -93,11 +93,11 @@ This project includes a dedicated controller (WorkflowController) to help you in
 
 ### 📌 Endpoints Overview
 
-- GET /api/workflow/instances — List all active process instances.
-- GET /api/workflow/tasks — View user tasks. You can filter by:
-  - ?assignee=john → tasks assigned to a user
-  - ?candidateGroup=managers → tasks waiting for a group
-- POST /api/workflow/tasks/{taskId}/complete — Complete a user task manually. Accepts an optional JSON body to pass variables.
+- GET `/api/workflow/instances` — List all active process instances.
+- GET `/api/workflow/tasks` — View user tasks. You can filter by:
+  - `?assignee=john` → tasks assigned to a user
+  - `?candidateGroup=managers` → tasks waiting for a group
+- POST `/api/workflow/tasks/{taskId}/complete` — Complete a user task manually. Accepts an optional JSON body to pass variables.
 
 Once the application is up and running, here’s how you can interact with the workflow and test different scenarios:
 
