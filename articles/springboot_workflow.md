@@ -89,7 +89,7 @@ cd tspark-trade-workflow
 
 ## ⚙️ Interacting with the Workflow
 
-This project includes a dedicated controller (WorkflowController) to help you inspect and manage your running workflows directly through REST APIs. You can access these endpoints via Swagger or Postman to streamline debugging and manual flow control.
+This project includes a dedicated controller (`WorkflowController`) to help you inspect and manage your running workflows directly through REST APIs. You can access these endpoints via Swagger or Postman to streamline debugging and manual flow control.
 
 ### 📌 Endpoints Overview
 
@@ -137,7 +137,7 @@ This helps you debug or monitor ongoing workflows.
 
 Since we haven't assigned the task to a specific user or group, you can list all unassigned tasks with:
 
-`curl -X GET "http://localhost:8080/api/workflow/tasks"`
+`curl -X GET http://localhost:8080/api/workflow/tasks`
 
 If you later update your process to assign tasks to users or groups, you can add filters like `?assignee=john` or `?candidateGroup=managers`
 
