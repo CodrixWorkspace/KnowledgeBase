@@ -168,4 +168,6 @@ This moves the workflow forward to the trade execution step.
 
 ## 👨‍💻 About the Author
 
-This demo is part of the [FullStack Launchpad: Novice Edition](https://medium.com/fullstack-launchpad-novice-edition) - _Your hands-on journey from beginner to backend expert - one guide at a time._. Built with ❤️ by TechSpark Publications.
+This demo is part of the [SkillHunt developer resource hub](https://skillhunt.codrixtech.com/) — where we turn real-world use cases into hands-on learning projects. If you're looking to grow your skills through practical, full-stack guides, this one's for you.
+
+Built with ❤️ by Codrix Technologies
