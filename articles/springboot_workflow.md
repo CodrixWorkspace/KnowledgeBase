@@ -165,3 +165,7 @@ curl -X POST http://localhost:8080/api/workflow/tasks/{taskId}/complete \
 Replace `{taskId}` with the actual ID returned from the task list API.
 
 This moves the workflow forward to the trade execution step.
+
+## 👨‍💻 About the Author
+
+This demo is part of the [FullStack Launchpad: Novice Edition](https://medium.com/fullstack-launchpad-novice-edition) - _Your hands-on journey from beginner to backend expert - one guide at a time._. Built with ❤️ by TechSpark Publications.
