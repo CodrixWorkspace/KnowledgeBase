@@ -1,33 +1,48 @@
-# Spring Boot with Gradle
+# Spring Boot Project Creation with Gradle
 
-This guide provides a step-by-step approach, so you can master the art of creating a Spring Boot project with
-Gradle using just the command line — and later bring it to life in IntelliJ IDEA.
+This guide offers a detailed, step-by-step approach to creating a Spring Boot project with Gradle using the command line. We'll also show you how to get your project up and running in IntelliJ IDEA.
 
 ## Prerequisites
 
-To follow this guide, ensure you have the following installed and configured on your system:
+Before you begin, make sure you have the following installed and configured on your system:
 
-1. Java Development Kit (JDK) :</b> Java 8 or higher (preferably Java 11 or 17)
+1. **Java Development Kit (JDK):** You'll need Java 8 or higher, preferably Java 11 or 17. Verify your installation by running `java -version`.
+2. **Gradle:** Verify your installation by running `gradle -v`.
+3. **IntelliJ IDEA**
+4. **Command Line Tool**
 
-    Verify installation by running `java -version`
+## Setting Up the Project Structure
 
-2. Gradle
-
-    Verify installation by running `gradle -v`
-
-3. IntelliJ IDEA
-4. Command Line Tool
-
-## Setup Project Structure
-
-- Open Terminal or Command prompt and navigate to the directory where you want to create the project
+- Open your Terminal or Command Prompt and navigate to the directory where you want to create the project:
 
         cd ~/Documents/Workspace/EducateWorkspace
-- Create a new directory for you project and switch to the newly created directory
+
+- Create a new directory for your project and switch to the newly created directory:
 
         mkdir tspark-springboot-gradle
-
         cd tspark-springboot-gradle
+
+## Initializing the Gradle Project
+
+Generate the project structure using Gradle’s `init` command:
+
+        gradle init
+
+During initialization, follow these prompts:
+
+- **Select type of project:** Application
+- **Select implementation language:** Java
+- **Enter target Java version (min: 7, default: 21):** 17
+- **Project name:** tspark-springboot-gradle
+- **Select application structure:** Single application project
+- **Select build script DSL:** Groovy
+- **Select test framework:** JUnit4
+
+Generate a Gradle wrapper:
+
+    gradle wrapper
+
+This creates a `gradlew` script for Linux/Mac and `gradlew.bat` for Windows, along with the `gradle/wrapper` directory containing wrapper files.
 
 ## Initialize the Gradle Project
 
@@ -51,22 +66,18 @@ Generate a Gradle wrapper:
 
 This creates a `gradlew` script for Linux/Mac and `gradlew.bat` for Windows, along with the `gradle/wrapper` directory containing wrapper files.
 
-![Image Description](https://articleimages.s3.ap-south-1.amazonaws.com/tree-736885_1920.jpg "Image Title")
-
-
 ## Opening the Project in IntelliJ IDEA or VS Code
 
-Now is the perfect time to open the project in the IDE of your choice. You can launch your IDE and manually browse to open the project directory, or simply run the following command from the project folder for convenience
+You can now open the project in your preferred IDE. Either launch your IDE and manually browse to open the project directory, or run the following command from the project folder for convenience:
 
         open -na "IntelliJ IDEA CE.app" .   #For opening in Intellij
-
         code .   #For opening in vscode
 
 _Note:_ Ensure your IDE is added to your system’s PATH for these commands to work.
 
-## Update the `build.gradle` File
+## Updating the `build.gradle` File
 
-Open the build.gradle file in your IDE and modify it to include Spring Boot dependencies and plugins
+Open the `build.gradle` file in your IDE and modify it to include Spring Boot dependencies and plugins:
 
 ```groovy
 plugins {
@@ -89,12 +100,12 @@ dependencies {
 }
 ```
 
-## Main Application Class
+## Creating the Main Application Class
 
-The main application class in a Spring Boot project serves as the entry point for the application. It contains the main method, which starts the Spring Boot application and initializes its runtime environment.
+The main application class in a Spring Boot project is the entry point for the application. It contains the main method, which starts the Spring Boot application and initializes its runtime environment.
 
-- Create a package of your choice under the `src\main\java` folder. (eg: `org.techspark`)
-- Under the newly created package create a new java class file `Application.java` with below content
+- Create a package of your choice under the `src\main\java` folder. (e.g., `org.techspark`)
+- Under the newly created package, create a new Java class file `Application.java` with the following content:
 
 ```java
 package org.techspark;
@@ -110,14 +121,13 @@ public class Application {
 }
 ```
 
-- Lets add a simple controller under the same package `GreetingController.java`
+- Add a simple controller under the same package `GreetingController.java`:
 
 ```java
 package org.techspark;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 
 @RestController
 public class GreetingController {
@@ -128,9 +138,9 @@ public class GreetingController {
 }
 ```
 
-## Run The Application
+## Running the Application
 
-Run the application from the IDE or using gradle command `./gradlew bootRun`
+Run the application from the IDE or using the Gradle command `./gradlew bootRun`.
 
 Open a browser or use curl to visit the default endpoint:
 
@@ -138,14 +148,12 @@ Open a browser or use curl to visit the default endpoint:
 curl http://localhost:8080
 ```
 
-You would see the below message
+You should see the following message:
 
 ```shell
 Greeting from TechSpark
 ```
 
-I hope this article has refreshed your skills or introduced you to a few new tricks for building Spring Boot projects with Gradle from scratch. Whether you’re a seasoned developer or just starting with Spring Boot, taking the time to create a project manually helps deepen your understanding and gives you greater control over your setup.
+Whether you're a seasoned developer or just starting with Spring Boot, creating a project manually can deepen your understanding and give you greater control over your setup. To streamline your future projects, consider creating a skeleton repository with all the basic configurations and dependencies you frequently use. This can save you time and effort when starting new services.
 
-To streamline your future projects, I recommend creating a skeleton repository with all the basic configurations and dependencies you frequently use. This will save you time and effort when starting new services.
-
-You can find the final code at : 👉 [My Spring Boot Skeleton Repository](https://github.com/TechSparkWorkspace/tspark-springboot-gradle.git)
+You can find the final code at: [My Spring Boot Skeleton Repository](https://github.com/TechSparkWorkspace/tspark-springboot-gradle.git).
