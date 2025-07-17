@@ -156,4 +156,4 @@ Greeting from TechSpark
 
 Whether you're a seasoned developer or just starting with Spring Boot, creating a project manually can deepen your understanding and give you greater control over your setup. To streamline your future projects, consider creating a skeleton repository with all the basic configurations and dependencies you frequently use. This can save you time and effort when starting new services.
 
-You can find the final code at: [My Spring Boot Skeleton Repository](https://github.com/TechSparkWorkspace/tspark-springboot-gradle.git).
+You can find the final code at: [tspark-springboot-gradle](https://github.com/TechSparkWorkspace/tspark-springboot-gradle.git).
