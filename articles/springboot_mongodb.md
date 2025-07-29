@@ -4,7 +4,9 @@ In this guide, we’ll walk through building a real-time portfolio tracker using
 
 ## 💡 Why MongoDB?
 
-MongoDB is flexible, fast to iterate with, and makes it easy to model loosely structured data like financial transactions. Benefits:
+MongoDB is flexible, fast to iterate with, and makes it easy to model loosely structured data like financial transactions.
+
+**Benefits:**
 
 - ✅ Dynamic schema (no need to predefine every field)
 - ✅ Easy to scale as your app grows
@@ -104,7 +106,7 @@ You have two ways to get started with this project, based on how you'd like to e
 
 ### ✨ Option 1: Create Your Own Repo from the Template
 
-- Head over to our [Spring Boot starter template on GitHub]((https://github.com/TechSparkWorkspace/tspark-springboot-starter-template)).
+- Head over to our [Spring Boot starter template on GitHub](https://github.com/TechSparkWorkspace/tspark-springboot-starter-template)
 - Click the `Use this template` button at the top right of the repository.
 - Give your new repository a name, and choose visibility (public/private).
 - Clone your repo locally:
