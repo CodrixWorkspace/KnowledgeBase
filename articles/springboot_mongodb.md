@@ -249,6 +249,19 @@ public class PortfolioTransactionDTO {
 }
 ```
 
+### 🔁 Mapper
+
+```java
+@Mapper(componentModel = "spring")
+public interface PortfolioTransactionMapper {
+    PortfolioTransaction toEntity(PortfolioTransactionDTO dto);
+
+    PortfolioTransactionDTO toDto(PortfolioTransaction entity);
+
+    List<PortfolioTransactionDTO> toDtoList(List<PortfolioTransaction> list);
+}
+```
+
 ### 🧩 Service Layer
 
 ```java
