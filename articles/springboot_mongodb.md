@@ -4,7 +4,9 @@ In this guide, we’ll walk through building a real-time portfolio tracker using
 
 ## 💡 Why MongoDB?
 
-MongoDB is flexible, fast to iterate with, and makes it easy to model loosely structured data like financial transactions. Benefits:
+MongoDB is flexible, fast to iterate with, and makes it easy to model loosely structured data like financial transactions.
+
+**Benefits:**
 
 - ✅ Dynamic schema (no need to predefine every field)
 - ✅ Easy to scale as your app grows
@@ -104,7 +106,7 @@ You have two ways to get started with this project, based on how you'd like to e
 
 ### ✨ Option 1: Create Your Own Repo from the Template
 
-- Head over to our [Spring Boot starter template on GitHub]((https://github.com/TechSparkWorkspace/tspark-springboot-starter-template)).
+- Head over to our [Spring Boot starter template on GitHub](https://github.com/TechSparkWorkspace/tspark-springboot-starter-template)
 - Click the `Use this template` button at the top right of the repository.
 - Give your new repository a name, and choose visibility (public/private).
 - Clone your repo locally:
@@ -125,8 +127,9 @@ cd tspark-springboot-mongodb
 - Clone the template repo directly:
 
 ```bash
-git clone https://github.com/your-org/spring-boot-starter-template.git
-cd spring-boot-starter-template
+git clone git@github.com:TechSparkWorkspace/tspark-springboot-starter-template.git
+mv tspark-springboot-starter-template tspark-springboot-mongodb
+cd tspark-springboot-mongodb
 ```
 
 - Modify the code freely without affecting the original template.
@@ -141,8 +144,8 @@ Before jumping into code, make these minor adjustments:
     ```rootProject.name = 'your-repo-name'```
 
 - Refactor the base package if needed to match your domain
-- Update README.md to reflect your project purpose
-- Update the Swagger configuration class (usually found under configuration package) to use the correct project title and description.
+- Update `README.md` to reflect your project purpose
+- Update the Swagger configuration class (usually found under `configuration` package) to use the correct project title and description.
 - Remove the `spring-boot-starter-data-jpa` and `h2` libraries from `build.gradle` file
 - Delete all files under `portfolio` package to start fresh
 
@@ -160,6 +163,15 @@ Before diving into the code, here’s a quick summary of the components we’ll 
 - **Swagger UI:** To test and explore the APIs
 
 This structure keeps the project clean, testable, and ready to scale.
+
+### Gradle Config
+
+Add the below dependency to your `build.gradle`
+
+```gradle
+    //Mongo DB
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+```
 
 ### 📦 Domain: Portfolio Transaction
 
@@ -206,6 +218,47 @@ public enum TransactionType {
 ```java
 public interface PortfolioRepository extends MongoRepository<PortfolioTransaction, String> {
     List<PortfolioTransaction> findBySymbol(String symbol);
+}
+```
+
+### DTO Object
+
+```java
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class PortfolioTransactionDTO {
+
+    private String id;
+
+    @NotBlank
+    private String symbol;
+
+    @NotNull
+    private TransactionType type; // BUY or SELL
+
+    @NotNull
+    private Double quantity;
+
+    @NotNull
+    private Double price;
+
+    @NotNull
+    private LocalDate date;
+}
+```
+
+### 🔁 Mapper
+
+```java
+@Mapper(componentModel = "spring")
+public interface PortfolioTransactionMapper {
+    PortfolioTransaction toEntity(PortfolioTransactionDTO dto);
+
+    PortfolioTransactionDTO toDto(PortfolioTransaction entity);
+
+    List<PortfolioTransactionDTO> toDtoList(List<PortfolioTransaction> list);
 }
 ```
 
@@ -405,3 +458,7 @@ Content-Type: application/json
 ```DELETE /api/portfolio/{id}```
 
 ✅ Expected Response: 204 No Content
+
+## 💡 Enjoying this guide on SkillHunt?
+
+Don’t stop here — explore our growing collection of hands-on user guides to sharpen your full-stack skills. From Spring Boot and MongoDB to Angular, React, and DevOps tips — we’ve got you covered!
