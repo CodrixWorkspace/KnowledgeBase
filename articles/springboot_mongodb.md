@@ -127,8 +127,9 @@ cd tspark-springboot-mongodb
 - Clone the template repo directly:
 
 ```bash
-git clone https://github.com/your-org/spring-boot-starter-template.git
-cd spring-boot-starter-template
+git clone git@github.com:TechSparkWorkspace/tspark-springboot-starter-template.git
+mv tspark-springboot-starter-template tspark-springboot-mongodb
+cd tspark-springboot-mongodb
 ```
 
 - Modify the code freely without affecting the original template.
@@ -143,8 +144,8 @@ Before jumping into code, make these minor adjustments:
     ```rootProject.name = 'your-repo-name'```
 
 - Refactor the base package if needed to match your domain
-- Update README.md to reflect your project purpose
-- Update the Swagger configuration class (usually found under configuration package) to use the correct project title and description.
+- Update `README.md` to reflect your project purpose
+- Update the Swagger configuration class (usually found under `configuration` package) to use the correct project title and description.
 - Remove the `spring-boot-starter-data-jpa` and `h2` libraries from `build.gradle` file
 - Delete all files under `portfolio` package to start fresh
 
@@ -162,6 +163,15 @@ Before diving into the code, here’s a quick summary of the components we’ll 
 - **Swagger UI:** To test and explore the APIs
 
 This structure keeps the project clean, testable, and ready to scale.
+
+### Gradle Config
+
+Add the below dependency to your `build.gradle`
+
+```gradle
+    //Mongo DB
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+```
 
 ### 📦 Domain: Portfolio Transaction
 
@@ -208,6 +218,34 @@ public enum TransactionType {
 ```java
 public interface PortfolioRepository extends MongoRepository<PortfolioTransaction, String> {
     List<PortfolioTransaction> findBySymbol(String symbol);
+}
+```
+
+### DTO Object
+
+```java
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class PortfolioTransactionDTO {
+
+    private String id;
+
+    @NotBlank
+    private String symbol;
+
+    @NotNull
+    private TransactionType type; // BUY or SELL
+
+    @NotNull
+    private Double quantity;
+
+    @NotNull
+    private Double price;
+
+    @NotNull
+    private LocalDate date;
 }
 ```
 
