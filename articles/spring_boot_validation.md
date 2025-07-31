@@ -12,9 +12,14 @@ Request parameter validation is a vital component in building robust and secure 
 
 By integrating validation for GET, POST, and PUT requests, you can create a robust API that not only safeguards your application but also fosters trust and reliability for its users.
 
-If you’re short on time and want to dive straight into the practical implementation, you can refer to my pre-configured GitHub [Spring Boot Request Validation Guide repository](https://github.com/TechSparkWorkspace/tspark-springboot-validation). You can clone it, run the application, and experiment with validation techniques right away. 📚
+## Project Setup
 
-**//TODO - Give reference to our other user guide which the user can use to build a project from scratch**
+✅ If you haven’t yet created a Spring Boot project and want to start from scratch with Gradle, check out our **step-by-step guide** here:
+[👉 How to Create a Spring Boot Project with Gradle (Beginner Friendly)](https://skillhunt.codrixtech.com/guide/view?src=spring_boot_gradle.md&id=10e96ec0-f43c-4cea-bd7f-ca3412fc268f)
+
+This guide helps you scaffold a Spring Boot application using the command line and IntelliJ IDEA, so you’re all set before jumping into validation. 🛠️
+
+If you’re short on time and want to dive straight into the practical implementation, you can refer to my pre-configured GitHub [Spring Boot Request Validation Guide repository](https://github.com/TechSparkWorkspace/tspark-springboot-validation). You can clone it, run the application, and experiment with validation techniques right away. 📚
 
 ## How to Set Up Validation in a Spring Boot Project
 
