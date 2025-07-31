@@ -2,7 +2,7 @@
 
 A beginner-friendly guide to understand how Large Language Models (LLMs) actually work — without the jargon overload.
 
-📣 This guide is part of the SkillHunt User Guides series — your go-to collection of practical, beginner-friendly tutorials across tech, productivity, and everyday problem solving.
+📣 This guide is part of the [SkillHunt User Guides](https://skillhunt.codrixtech.com/) series — your go-to collection of practical, beginner-friendly tutorials across tech, productivity, and everyday problem solving.
 
 ## 🧠 What Is an LLM?
 
