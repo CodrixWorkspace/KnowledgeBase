@@ -1,22 +1,24 @@
-# Validating Requests in Spring Boot Controllers
+# Guide to Request Validation in Spring Boot Controllers
 
-This guide provides instructions about how to apply validations in Spring Boot Controllers  
+This comprehensive guide will walk you through the process of implementing validations in Spring Boot Controllers.
 
-## Summary
+## Overview
 
-Request parameter validation is a cornerstone of building reliable and secure APIs. Here’s why it’s essential:
+Request parameter validation is a vital component in building robust and secure APIs. Here's why it's indispensable:
 
-- **Ensuring Data Integrity**: Validation ensures that the data received by your API adheres to expected formats, lengths, or patterns. This prevents invalid or malformed data from propagating through the application and causing errors
-- **Enhancing API Security**: Proper validation helps mitigate security vulnerabilities such as injection attacks, by ensuring inputs are sanitized and restricted to acceptable values
-- **Improving User Experience**: By validating and providing clear error messages, developers and end-users gain insight into why a request failed, leading to faster debugging and smoother interactions
+- **Data Integrity Assurance**: Validation ensures that the data received by your API complies with the expected formats, lengths, or patterns, preventing invalid or malformed data from causing errors within your application. 🛡️
+- **API Security Enhancement**: Proper validation helps mitigate security vulnerabilities, such as injection attacks, by ensuring inputs are sanitized and restricted to acceptable values. 🔒
+- **User Experience Improvement**: By validating and providing clear error messages, developers and end-users gain insight into why a request failed, leading to faster debugging and smoother interactions. 🚀
 
-By integrating validation for GET, POST, and PUT requests, you can create a robust API that not only safeguards your application but also fosters trust and reliability for its users
+By integrating validation for GET, POST, and PUT requests, you can create a robust API that not only safeguards your application but also fosters trust and reliability for its users.
 
-If you’re short on time and want to dive straight into the practical implementation, you can refer to my pre-configured GitHub [Spring Boot Request Validation Guide repository](https://github.com/TechSparkWorkspace/tspark-springboot-validation). You can clone it, run the application, and experiment with validation techniques right away.
+If you’re short on time and want to dive straight into the practical implementation, you can refer to my pre-configured GitHub [Spring Boot Request Validation Guide repository](https://github.com/TechSparkWorkspace/tspark-springboot-validation). You can clone it, run the application, and experiment with validation techniques right away. 📚
 
-## Setting Up Validation in a Spring Boot Project
+**//TODO - Give reference to our other user guide which the user can use to build a project from scratch**
 
-Add the below dependency to your build.gradle file:
+## How to Set Up Validation in a Spring Boot Project
+
+To set up validation, add the following dependency to your `build.gradle` file:
 
 ```groovy
 dependencies {
@@ -24,12 +26,16 @@ dependencies {
 }
 ```
 
-Spring Boot automatically detects the spring-boot-starter-validation dependency and integrates it. No additional configuration is required to enable validation.
+Spring Boot automatically detects the `spring-boot-starter-validation` dependency and integrates it. No additional configuration is required to enable validation. 🎉
 
-## Validation for GET Request
+## Implementing Validation for GET Request
 
-- Add @Validated to the Class or Method
-- Add validation constraints to the request params. Refer to the [API documentation](https://jakarta.ee/specifications/bean-validation/3.0/apidocs/jakarta/validation/constraints/package-summary) to learn about the available constraints
+To validate a `GET` request:
+
+- Add `@Validated` to the Class or Method.
+- Add **validation constraints to the request params**. Refer to the [API documentation](https://jakarta.ee/specifications/bean-validation/3.0/apidocs/jakarta/validation/constraints/package-summary) to learn about the available constraints.
+
+Here's an example:
 
 ```java
 @RestController
@@ -44,7 +50,7 @@ public class WishListController {
 }
 ```
 
-Spring Boot validation errors are mapped to ConstraintViolationException. If no exception handler is defined, validation might not work properly. Add a global exception handler to handle validation errors:
+Spring Boot validation errors are mapped to **`ConstraintViolationException`**. If no exception handler is defined, validation might not work properly. Add a **global exception handler** to handle validation errors:
 
 ```java
 @ControllerAdvice
@@ -78,9 +84,9 @@ curl "http://localhost:8080/api/wish?category=activity"
 
 ```
 
-## Validation for GET Request with Path Param
+## Implementing Validation for GET Request with Path Param
 
-When handling path parameters in a GET request, you can validate them using @PathVariable in combination with validation annotations like @NotBlank, @Size, or @Pattern.
+When handling path parameters in a `GET` request, you can validate them using `@PathVariable` in combination with **validation annotations** like `@NotBlank`, `@Size`, or `@Pattern`.
 
 Here's an example:
 
@@ -118,11 +124,11 @@ curl "http://localhost:8080/api/wish/2024"
 
 ```
 
-## Validation for POST Request
+## Implementing Validation for POST Request
 
-In a POST request, validation is typically applied to the request body. We achieve this by using a Data Transfer Object (DTO) and annotations from the validation API.
+In a `POST` request, validation is typically **applied to the request body**. We achieve this by using a **Data Transfer Object (DTO) and annotations** from the validation API.
 
-Create the below DTO Object with the required constraints
+Create the below DTO Object with the required constraints:
 
 ```java
 @Data
@@ -143,7 +149,7 @@ public class WishRequest {
 }
 ```
 
-Add the validated attribute to the post method
+Add the `@Validated` attribute to the post method
 
 ```java
 @RestController
@@ -158,7 +164,7 @@ public class WishListController {
 }
 ```
 
-Add the below ExceptionHandler to customize validation error responses
+Add the below **`ExceptionHandler`** to customize validation error responses:
 
 ```java
 @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -197,14 +203,14 @@ curl -X POST "http://localhost:8080/api/wish" \
 # Output - Wish created: Learn to play Ukelele, Category: learning
 ```
 
-You can see in the tests above that error messages are returned when the input request does not comply with the rules defined in the object.
+As you can see in the tests above, error messages are returned when the input request does not comply with the rules defined in the object.
 
-The validation for PUT and POST methods in Spring Boot is fundamentally the same because both typically involve validating the request body using a Data Transfer Object (DTO). However, there are a few key differences in their use cases and the associated validation strategies:
+The validation for `PUT` and `POST` methods in Spring Boot is fundamentally the same because both typically involve validating the request body using a Data Transfer Object (DTO). However, there are a few key differences in their use cases and the associated validation strategies:
 
-**POST**: Typically used for creating new resources. All fields are often required, and validation ensures the completeness of the data.
+**POST**: Typically used for creating new resources. All fields are often required, and **validation ensures the completeness of the data**.
 
-**PUT**: Typically used for updating existing resources. Some fields might be optional, especially if you are performing a partial update or allowing users to modify only specific attributes.
+**PUT**: Typically used for updating existing resources. **Some fields might be optional**, especially if you are performing a partial update or allowing users to modify only specific attributes.
 
-In this guide, we explored how to implement request parameter validation in Spring Boot for GET, POST, and PUT methods. By applying proper validation techniques, you can ensure the integrity of your APIs, improve security, and provide a better experience for users interacting with your services.
+In this guide, we explored how to implement request parameter validation in Spring Boot for `GET`, `POST`, and `PUT` methods. By applying proper validation techniques, you can ensure the **integrity of your APIs, improve security, and provide a better experience** for users interacting with your services. 🎯
 
-Validation is a critical aspect of building reliable applications, and with the examples shared here, you now have a solid foundation to enhance your APIs.
+Validation is a critical aspect of **building reliable applications**, and with the examples shared here, you now have a solid foundation to enhance your APIs. 💪
