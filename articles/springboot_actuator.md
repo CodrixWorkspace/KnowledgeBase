@@ -9,9 +9,9 @@ Spring Boot Actuator brings **production-ready features** to your applications w
 ✅ If you haven’t yet created a Spring Boot project and want to start from scratch with Gradle, check out our **step-by-step guide** here:
 [👉 How to Create a Spring Boot Project with Gradle (Beginner Friendly)](https://skillhunt.codrixtech.com/guide/view?src=spring_boot_gradle.md&id=10e96ec0-f43c-4cea-bd7f-ca3412fc268f)
 
-This guide helps you scaffold a Spring Boot application using the **command line and IntelliJ IDEA**, so you’re all set before jumping into validation. 🛠️
+This guide helps you scaffold a Spring Boot application using the **command line and IntelliJ IDEA**, so you’re all set before jumping into experimenting actuator capabilities. 🛠️
 
-If you’re short on time and want to dive straight into the practical implementation, you can refer to my pre-configured GitHub [Spring Boot Request Validation Guide repository](git@github.com:TechSparkWorkspace/tspark-springboot-actuator.git). You can clone it, run the application, and experiment with guide right away. 📚
+If you’re short on time and want to dive straight into the practical implementation, you can refer to my pre-configured GitHub [Spring Boot Actuator Guide repository](https://github.com/TechSparkWorkspace/tspark-springboot-actuator.git). You can clone it, run the application, and experiment with guide right away. 📚
 
 ## 📦 Adding Gradle Dependency
 
@@ -78,7 +78,7 @@ public class CustomHealthIndicator implements HealthIndicator {
 }
 ```
 
-### 🧪 Actuator Endpoint Example
+### 🧪 Try: ```/actuator/health```
 
 ```json
 {
@@ -123,7 +123,7 @@ info:
     description: "Spring Boot Actuator exploration"
 ```
 
-### 🧪 Info Endpoint Example
+### 🧪 Try: ```/actuator/info```
 
 ```json
 TODO - Fill this with the response json
@@ -131,9 +131,7 @@ TODO - Fill this with the response json
 
 ## 📈 /actuator/metrics – Real-Time Metrics
 
-Exposes various metrics collected by Micrometer.
-
-Micrometer is the underlying **metrics library that Spring Boot Actuator uses out-of-the-box**. It comes **built-in with the Actuator starter**, so you don’t need to add it separately. It provides a **simple facade over popular monitoring systems like Prometheus, Datadog, New Relic**, and more.
+Exposes various metrics collected by Micrometer. Micrometer is the underlying **metrics library that Spring Boot Actuator uses out-of-the-box**. It comes **built-in with the Actuator starter**, so you don’t need to add it separately. It provides a **simple facade over popular monitoring systems like Prometheus, Datadog, New Relic**, and more.
 
 By default, Micrometer captures **JVM stats, process metrics, HTTP request performance**, and more — making it a powerful tool for real-time observability.
 
@@ -143,9 +141,7 @@ By default, Micrometer captures **JVM stats, process metrics, HTTP request perfo
 - system.cpu.usage
 - http.server.requests
 
-### 🧪 Metrics Endpoint Example
-
-🧪 Try: ```/actuator/metrics/jvm.memory.used```
+### 🧪 Try: ```/actuator/metrics/jvm.memory.used```
 
 ```json
 {
@@ -187,7 +183,7 @@ By default, Micrometer captures **JVM stats, process metrics, HTTP request perfo
 
 This endpoint provides **detailed visibility into the application's active environment**. It exposes **configuration properties, system properties, active Spring profiles, and values from the environment abstraction** — all of which can be incredibly helpful for **diagnosing configuration issues, verifying profile setups**, or understanding where property values are coming from.
 
-🧪 Try: ```/actuator/env```
+### 🧪 Try: ```/actuator/env```
 
 _🔒 Sensitive values like passwords, keys, and tokens are masked by default for security. To reveal them (not recommended for production), you can configure:_
 
@@ -227,7 +223,7 @@ public class ProductController {
 
 Once this controller is loaded, it will appear in the `/actuator/mappings` output under `/api/products` with both `GET` and `POST` methods.
 
-🧪 Try: ```/actuator/mappings```
+### 🧪 Try: ```/actuator/mappings```
 
 _🔧 If this endpoint doesn't work, make sure it's included in the `exposure.include` list in your configuration:_
 
