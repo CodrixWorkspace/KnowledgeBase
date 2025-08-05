@@ -128,7 +128,13 @@ info:
 ### 🧪 Try: `/actuator/info`
 
 ```json
-TODO - Fill this with the response json
+{
+  "app": {
+    "name": "TechSpark Actuator App",
+    "version": "1.0.0",
+    "description": "This is a Spring Boot application to showcase the Actuator capabilities"
+  }
+}
 ```
 
 ## 📈 /actuator/metrics – Real-Time Metrics
@@ -238,6 +244,28 @@ management:
 ```
 
 You can also use include: "*" during local testing to expose all endpoints temporarily.
+
+## 🧵 `/actuator/threaddump` – JVM Threads Snapshot
+
+This endpoint provides a live snapshot of all JVM threads currently running in your application. It’s helpful for identifying performance bottlenecks, deadlocks, or stuck threads during high load or outages.
+
+## 📴 `/actuator/shutdown` – Graceful Exit Trigger
+
+⚙️ Enable explicitly:
+
+```yaml
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+```
+
+Use `POST` request to trigger shutdown.
+
+## 💾 `/actuator/heapdump` – Memory Dump for Analysis
+
+Used for offline memory analysis with tools like Eclipse MAT.
+
 
 ## 💡 Enjoying this guide on SkillHunt?
 
