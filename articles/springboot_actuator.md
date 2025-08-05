@@ -9,9 +9,9 @@ Spring Boot Actuator brings **production-ready features** to your applications w
 ✅ If you haven’t yet created a Spring Boot project and want to start from scratch with Gradle, check out our **step-by-step guide** here:
 [👉 How to Create a Spring Boot Project with Gradle (Beginner Friendly)](https://skillhunt.codrixtech.com/guide/view?src=spring_boot_gradle.md&id=10e96ec0-f43c-4cea-bd7f-ca3412fc268f)
 
-This guide helps you scaffold a Spring Boot application using the **command line and IntelliJ IDEA**, so you’re all set before jumping into experimenting actuator capabilities. 🛠️
+This guide helps you scaffold a Spring Boot application using the **command line and IntelliJ IDEA**, so you’re all set before jumping into **experimenting actuator capabilities.** 🛠️
 
-If you’re short on time and want to dive straight into the practical implementation, you can refer to my pre-configured GitHub [Spring Boot Actuator Guide repository](https://github.com/TechSparkWorkspace/tspark-springboot-actuator.git). You can clone it, run the application, and experiment with guide right away. 📚
+If you’re **short on time and want to dive straight into the practical implementation**, you can refer to my pre-configured GitHub [Spring Boot Actuator Guide repository](https://github.com/TechSparkWorkspace/tspark-springboot-actuator.git). You can clone it, run the application, and experiment with guide right away. 📚
 
 ## 📦 Adding Gradle Dependency
 
@@ -68,6 +68,8 @@ This tells Spring Boot Actuator to **always include detailed health information*
 
 ### 🧰 Add your own custom indicator
 
+You can extend Actuator’s health checks by creating your own indicator. This lets you report the status of any custom service or resource in your application.
+
 ```java
 @Component
 public class CustomHealthIndicator implements HealthIndicator {
@@ -78,7 +80,7 @@ public class CustomHealthIndicator implements HealthIndicator {
 }
 ```
 
-### 🧪 Try: ```/actuator/health```
+### 🧪 Try: `/actuator/health`
 
 ```json
 {
@@ -123,7 +125,7 @@ info:
     description: "Spring Boot Actuator exploration"
 ```
 
-### 🧪 Try: ```/actuator/info```
+### 🧪 Try: `/actuator/info`
 
 ```json
 TODO - Fill this with the response json
