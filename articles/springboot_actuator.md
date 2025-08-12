@@ -137,7 +137,7 @@ info:
 }
 ```
 
-## 📈 /actuator/metrics – Real-Time Metrics
+## 📈 `/actuator/metrics` – Real-Time Metrics
 
 Exposes various metrics collected by Micrometer. Micrometer is the underlying **metrics library that Spring Boot Actuator uses out-of-the-box**. It comes **built-in with the Actuator starter**, so you don’t need to add it separately. It provides a **simple facade over popular monitoring systems like Prometheus, Datadog, New Relic**, and more.
 
@@ -149,7 +149,7 @@ By default, Micrometer captures **JVM stats, process metrics, HTTP request perfo
 - system.cpu.usage
 - http.server.requests
 
-### 🧪 Try: ```/actuator/metrics/jvm.memory.used```
+### 🧪 Try: `/actuator/metrics/jvm.memory.used`
 
 ```json
 {
@@ -191,7 +191,7 @@ By default, Micrometer captures **JVM stats, process metrics, HTTP request perfo
 
 This endpoint provides **detailed visibility into the application's active environment**. It exposes **configuration properties, system properties, active Spring profiles, and values from the environment abstraction** — all of which can be incredibly helpful for **diagnosing configuration issues, verifying profile setups**, or understanding where property values are coming from.
 
-### 🧪 Try: ```/actuator/env```
+### 🧪 Try: `/actuator/env`
 
 _🔒 Sensitive values like passwords, keys, and tokens are masked by default for security. To reveal them (not recommended for production), you can configure:_
 
@@ -231,7 +231,7 @@ public class ProductController {
 
 Once this controller is loaded, it will appear in the `/actuator/mappings` output under `/api/products` with both `GET` and `POST` methods.
 
-### 🧪 Try: ```/actuator/mappings```
+### 🧪 Try: `/actuator/mappings`
 
 _🔧 If this endpoint doesn't work, make sure it's included in the `exposure.include` list in your configuration:_
 
