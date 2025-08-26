@@ -20,6 +20,49 @@ Key Features of Ollama:
 
 ---
 
+## 🆕 What’s New in Ollama
+
+### Windows GUI Option
+
+Ollama now includes an official GUI for Windows, offering a more intuitive experience:
+
+* Drag-and-drop support for images and code files,
+* Adjustable context window via slider,
+* Basic model browsing and chatting—all without a terminal.
+  Advanced operations (push/pull, model creation) still require the CLI.
+
+### Performance Tuning: Context Length Matters
+
+Avoid sluggish performance by fine-tuning the context length. Huge context windows (e.g., 64k tokens) may bog down the CPU—even on high-end GPUs like RTX 5080. A shorter window (4k–8k tokens) often yields faster, smoother GPU-driven performance.
+
+### Expanded Model Library & Developer Tools
+
+Ollama now supports a wide array of models, such as:
+
+* `llama3.2`, `llama3.2:1b`, `llama3.2-vision`, `llama3.2-vision:90b`,
+* `phi4`, `phi4-mini`, `codellama`, `neural-chat`, `starling`, `granite3.3`, and `llava`.
+
+Custom models via `Modelfile`:
+
+```text
+FROM ./vicuna‑33b.Q4_0.gguf
+```
+
+```bash
+ollama create example -f Modelfile
+ollama run example
+```
+
+Ollama also supports Docker, REST APIs at `localhost:11434`, and community UIs like OpenWebUI or SwiftChat.
+
+### System Requirements & Alternatives
+
+* Platform: Windows, macOS, Linux (including Jetson via Docker/CUDA)
+* RAM: ≥8 GB for 7B models, 16 GB+ for GUI and larger models.
+* If your system uses integrated GPUs, **LM Studio** may outperform Ollama thanks to better Vulkan-based GPU offloading.
+
+---
+
 ## ⚙️ Install Ollama
 
 Ollama supports **Windows, macOS, and Linux**.
